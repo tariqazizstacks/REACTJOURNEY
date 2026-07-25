@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import Studentcard from './components/common/Studentcard'
 import Childrenprops from './components/common/Childrenprops'
+import './components/common/ProductItem.css'
+import { Blog } from './data/Blog'
+import './components/common/Card.css'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,8 +20,33 @@ function App() {
     <h1> this in betweeen of both tags is called Childrenprops</h1>
     </Childrenprops>
 
+
+    {Blog.map((v,i)=>{
+      return(
+        <div className="cardG">
+        <ProductItem pitem={v}/>
+        </div>
+      )
+    })}
+
+    
+     
+
     </>
   )
 }
-
 export default App
+
+ 
+
+function ProductItem({pitem}) {
+  return (
+    <div className="card">
+      <h2>{pitem.title}</h2>
+      <p>Price: $25</p>
+      <button>Buy Now</button>
+    </div>
+  );
+}
+
+
